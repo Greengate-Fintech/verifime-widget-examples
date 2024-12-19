@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base widget example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <style>
+      input {
+        width: 300px;
+        padding: 16px 8px;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 100px;
+    "
+  >
+    <div id="widget-inputs">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+        "
+      >
+        <h3>Please enter test inputs for widget</h3>
+        <div>
+          <div>E-mail:</div>
+          <input type="email" id="email" value="" />
+        </div>
+        <div>
+          <div>Organisation code:</div>
+          <input type="text" id="organiationCode" value="" />
+        </div>
+        <div>
+          <div>Reference data (optional):</div>
+          <input type="text" id="referenceData" value="" />
+        </div>
+        <div>
+          <button
+            style="
+              background-color: #5f48fb;
+              color: white;
+              padding: 8px 24px;
+              border: 0;
+              border-radius: 4px;
+              cursor: pointer;
+              font-size: 16px;
+            "
+            id="renderButton"
+          >
+            Render the widget
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper"></div>
+    <script type="module">
+      import { renderWidget } from "./index.js";
+
+      const renderButtonEle = document.querySelector("#renderButton");
+      renderButtonEle.addEventListener("click", renderWidget);
+    </script>
+  </body>
+</html>
